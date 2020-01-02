@@ -45,7 +45,6 @@ Plug 'tpope/vim-surround'
 " Line commenter
 Plug 'vim-scripts/tComment'
 
-" TODO: Check why completion is not working: for everything
 " Language Client
 Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
@@ -53,7 +52,10 @@ Plug 'autozimu/LanguageClient-neovim', {
             \ }
 
 "Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-ultisnips'
+" Plug 'ncm2/ncm2-jedi'
+Plug 'roxma/nvim-yarp'
 
 " Use tab for completion
 Plug 'ervandew/supertab'
@@ -200,19 +202,13 @@ map <leader>J <Plug>(easymotion-F)
 " ----------
 
 " ----------
-" deoplete
+" ncm2
 " ----------
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_camel_case = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#max_abbr_width = 0
-let g:deoplete#max_menu_width = 0
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect,preview
 
-call deoplete#custom#source('LanguageClient',
-            \ 'min_pattern_length',
-            \ 2)
+set shortmess+=c
+let g:ncm2#matcher="substrfuzzy"
 " ----------
 
 " ----------
@@ -227,7 +223,6 @@ set formatexpr=LanguageClient_textDocument_rangeFormatting()
 let g:LanguageClient_serverCommands = {
 \ 'python': ['/usr/bin/pyls'],
 \ }
-" \ 'python': ['/usr/bin/pyls', '-vv', '--log-file', '~/pyls.log'],
 
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_autoStop = 1
@@ -358,7 +353,6 @@ nmap <leader>ep :cp<CR>
 
 " Preview window config: down and close on exit
 set splitbelow
-set completeopt=longest,menuone,preview
 autocmd InsertLeave * if pumvisible() == 0| pclose|endif
 
 " Scrolling speedup
