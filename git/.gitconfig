@@ -1,0 +1,16 @@
+[user]
+	email = luka.krapic@gmail.com
+	name = Luka Krapic
+[alias]
+	co = checkout
+	st = status
+	ci = commit
+	br = branch
+	a = add
+    mg = merge
+	g = git
+[push]
+	default = matching
+[core]
+	excludesfile = ~/.gitignore_global
+	pager = less -F

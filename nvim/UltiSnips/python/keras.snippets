@@ -1,0 +1,84 @@
+snippet keras_doc "One pager for keras api."
+----------------------------
+KERAS DOC
+----------------------------
+Keras is high level deep learning api with tensorflow backend.
+Main unit in keras is layer and everything is layer.
+Layers are callables on keras tensor and return keras tensor.
+Layer for making keras tensor is Input layer.
+Model are defined by input and output tensors.
+Model are also callables.
+----------------------------
+
+----------------------------
+Module hierarchy:
+keras.models - models,
+keras.application - models and weights for transfer learning.
+keras.callables - callable functions for training process.
+----------------------------
+
+----------------------------
+Process:
+1) Define dinamic graphs,
+2) Compile model - define learning process (metric, optimizer and loss function).
+3) Fit model to training data,
+4) Evaluate model on test data / Predict valuese for production.
+----------------------------
+
+----------------------------
+Savin/loading data:
+model.save() - save architecture and weights
+model.save_weights()
+model.to_json() - save architecture
+
+keras.models.load_model() - load architecture and weights
+keras.models.model_from_json()
+keras.load_weights()
+----------------------------
+
+----------------------------
+Logs:
+hist = model.fit(...)
+print(hist.history)
+model.summary() - summary of architecture
+Tensorboard callback function.
+----------------------------
+
+----------------------------
+Training:
+SaveCheckpoint callable function
+----------------------------
+endsnippet
+
+snippet kfit "Keras model fitting with callback functions"
+logdir = "${1:./log}"
+modeldir = "${10:./model}"
+dirs = [logdir, modeldir]
+
+for d in dirs:
+	if not os.path.exists(d):
+		os.mkdir(d)
+
+
+${8:checkpoint_callback} = ModelCheckpoint(
+		filepath=modeldir + '${6:/checkpoint-{epoch:02d}-{val_acc:.2f}.hdf5}',
+		monitor='${7:accuracy}',
+		verbose=1
+		)
+
+
+${9:tensorboard_callback} = TensorBoard(
+		log_dir=logdir,
+		write_grads=True,
+		write_images=True,
+		histogram_freq=1)
+
+model.fit(
+		${2:x_train},
+		${3:y_train},
+		batch_size=${4:32},
+		nb_epoch=${5:10},
+		verbose=1,
+		callbacks=[$8, $9]
+		)
+endsnippet

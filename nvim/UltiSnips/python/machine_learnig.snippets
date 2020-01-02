@@ -1,0 +1,295 @@
+snippet cnn_doc "One pager for convolutional neural networks documentaiton."
+-------------------------------------------
+CONVOLUTIONAL NEURAL NETWORKS DOCUMENTATION
+-------------------------------------------
+
+-------------------------------
+ADVANTAGES
+-------------------------------
+Parameter sharing (independent of input image size)
+Sparsity of connection (each output depends on only small number of inputs)
+-------------------------------
+
+-------------------------------
+PROBLEMS
+-------------------------------
+Image classification
+Object detection
+Neural style transfer
+-------------------------------
+
+-------------------------------
+DEFINITIONS
+-------------------------------
+Filter:
+- Kernel user for convolutions.
+- Filter has depth equal to number of input channels.
+- Kernel values with biases are parameters which are learned.
+
+Activation map:
+- Result of convolving image with one kernel.
+
+Convolutional layer:
+- Reduces depth of input
+- Dimensions of activation map:
+* nh = floor( 1 + (nh[l-1] + 2p[l] - f[l]) / s[l] )
+* s -stride
+* p - padding
+* weights: f[l] x f[l] x nc[l] x nc[l-1]
+* biases: nc[l]
+
+Pooling:
+- Every channel seperately
+- Valid convolutional without padding
+- Same convolution (output dims same as input dims)
+-------------------------------
+
+-------------------------------
+ARCHITECTURES
+-------------------------------
+Resnet (residual networks):
+- Problem: too deep networks cant be trained well (exploding/wanishing gradients)
+- Solution: use residual blocks (shortcuts for propagating gradients)
+- a[l+2] = g(z[l+1] + a[l]) -- a(activations), z(without nonlinearity)
+- residual networks make depth a learable parameter (can learn identity and reduce depth)
+
+Inception
+- Use everything and exclude architecturing network from decision making
+- Problem: computational cost
+- Solution:  using 1-1 convolution for reducing input depth
+-------------------------------
+endsnippet
+
+snippet object_detection_doc "One pager for object detection documentation."
+-------------------------------
+OBJECT DETECTION DOCUMENTATION
+-------------------------------
+Def: Object detection is problem of predicting locations of objects
+and correctly classifying them.
+-------------------------------
+
+-------------------------------
+OUTPUT VARIABLE
+-------------------------------
+Output  variable y preserves spacial informations.
+Dimension of y is (grid_size X grid_size X # of ancor boxes X (# of classes + 4[boundry box] + 1[pc])
+
+yc = [pc, bx, by, bw, bw, c1, ..., cn]
+
+yc - information for a cell,
+pc - probability of class,
+bx, by, bh, bw - boundry box center and size,
+c1, ..., cn - one hot encoding of classes.
+
+Ancor boxses - used for overlaping  objects, every box is for one kind of shape
+-------------------------------
+
+-------------------------------
+ALGORITHM
+-------------------------------
+Use convolutional implementaiton (convolution instead of fc layers).
+Choose  conv and max pool layers so that you get grid of desired resolution as output.
+
+*************************************
+YOLO algorithm (You Only Look Once)
+*************************************
+1) Run image through cnn
+2) For every class run non-max supression
+*************************************
+
+Non-max supression:
+- solves problem of detecing same object in multiple cells.
+- suppress prediction in cells with IOU below threshold (intersection over union).
+-------------------------------
+
+-------------------------------
+COST FUNCTION
+-------------------------------
+-------------------------------
+endsnippet
+
+snippet ml_strategy "One pager for machine learning algorithm and erorrs."
+--------------------------
+MACHINE LEARNING STRATEGY
+--------------------------
+
+--------------------------
+ALGORITHM
+--------------------------
+Objective: Read and surpass human performance or some other benchmark
+
+1) Choose metric
+2) Find benchmark (human performance)
+3) Choose E2E or learning is steps
+4) Normalize data
+5) Split dataset
+6) Initialize transfer learning if possible
+7) Loop untill sattisfied: Train -> Evaluate -> Improove -> Train
+8) Test and report
+--------------------------
+
+--------------------------
+EVALUATION
+--------------------------
+Choose one evaluation metric and N-1 sattisfying metrics that must be
+sattisfied by model to come into consideration.
+
+Errors:
+*Human level error
+(High/low bias)
+
+*Train error
+(High/low variance)
+
+*Train-dev error
+(High/low data missmatch)
+
+*Dev error
+(High/low degree of overfitting to dev set)
+
+*Test error
+
+Train error = Train-dev error if no train/test distribution missmatch.
+--------------------------
+endsnippet
+
+snippet ml_strategy_details "One pager for general machine learning strategy details."
+--------------------------
+train/test split
+--------------------------
+Make sure that dev and test set come from same distribution.
+
+Split ratio depends on data set size. For big data sets you can
+use 1% dev and 1% test set.
+--------------------------
+
+
+--------------------------
+E2E or in stages
+--------------------------
+In E2E learning you use 1 neural network for the whole pipeline.
+Use when there is large corpus of data.
+
+In learning in stages you use neural network in part of the pipeline.
+Use when you have more data for each step but not for E2E.
+--------------------------
+
+--------------------------
+Transfer learning
+--------------------------
+Using network trained on non targeted problem for targeted (relevant) problem.
+
+Algorithm:
+1) Delete last layer and add layer for targeted task. You can also add a couple of layers.
+2) Retrain only last layer or the whole network if you have enough data.
+
+Use when:
+- tasks have the same input
+- lower level features could be helpful for solving targeted task
+- you have a lot of data for non targeted task and small amount for targeted.
+
+Definitions:
+Pretraining - training on non targeted task
+Finetuning - retraining for targeted task
+--------------------------
+
+
+--------------------------
+TRAINIG
+--------------------------
+++++++++++++++++++++++++++
+Vanishing gradient problem
+++++++++++++++++++++++++++
+Gradients become very big/small and dominate learning process.
+In deep networks small deviation of weights from 1 explode/vanishe activations.
+
+Partial solution:
+Use Xavier initialization of weights.
+
+
+++++++++++++++++++++++++++
+Optimization algorithm
+++++++++++++++++++++++++++
+Use adam optimizer (betta1 =  0.001, betta2 = 0.999)
+Local optima is not problem in high dimensional spaces (paleus are).
+
+
+++++++++++++++++++++++++++
+Normalization
+++++++++++++++++++++++++++
+Normalization is used for improving shape of cost function which speeds up training.
+
+Batch normalization:
+- performing normalization not only for the first layer but for arbitrary layer.
+
+- parameter of batch normalization are learned by the network
+(network can learn identity and turn of normalization).
+
+- solving problem of INTERNAL COVARIANCE SHIFT.
+Changing something in layer before drastically changes distribution in current layer.
+--------------------------
+
+
+--------------------------
+IMPROOVING
+--------------------------
+1) Bias/Variance
+
+* High degree of overfitting:
+- Increase dev set size
+
+* High data missmatch:
+.1 Manually ch3eck differences between dev set and train set
+.2 Make train set more similat or collect more data similar to dev-test set.
+
+* High variance:
+.1 Regularization
+.2 Simpler architecture
+.3 Get more data
+
+* High bias:
+.1 Train longer
+.2 Deeper architecture
+.3 Bigger layers
+
+2) Error analysis
+Used for evaluating ideas for  improvement.
+
+Take a sample from dev set and check missclassification. Use percentage of
+improvement relative to missclassification to evaluate ideas.
+
+3) Cleaning mislabeled data
+Check only for dev/test set.
+Use if % of mislabeled examples in a sample is large.
+
+++++++++++++++++++++++++++
+Data gathering
+++++++++++++++++++++++++++
+1) Make new data artificially by combining or transforming.
+
+2) Mismatch /train/test distributions:
+- use data from distribution on which model don't have to perform well but can help in training.
+- 1st distribution is distribution for which model should perform well.
+- 2nd distribution is distribution for which is irelevant if model performes well.
+- Make train set and train-dev set from 1st + 2nd distribution
+- Make dev set and test set from 1st distribution
+
+
+++++++++++++++++++++++++++
+Regularization
+++++++++++++++++++++++++++
+
+* L2 regularization:
+- penalize high value weights in cost function
+- cons: +1 hyperparameter
+
+* Dropout:
+- for layer L introduces probability that nodes output are going to get ignored in training phase
+- network cont rely on only on feature so it spreads weights accross all nodes
+
+- layers with most parameters should have higher dropout probability since
+there is more chandce of overfitting in that layer
+
+-cons: cost functio is not well defined
+--------------------------
+endsnippet

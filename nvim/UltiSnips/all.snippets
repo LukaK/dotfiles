@@ -1,0 +1,156 @@
+snippet dockerfile "Docker file template"
+# Dockerfile commands
+#
+# ENV <variable>=<value>
+# To access variable use $<variable>
+#
+# FROM <image> [AS <name>]
+# Must be first statement in a file.
+# Initializes new build stage and sets base image for subsequent instructions.
+# Can be used multiple times to build multiple images or use one stage as a dependency for another.
+# Each FROM instruction clears any state created by previous instructions.
+#
+# RUN <shell command> or RUN ["executable", "param1", "param2", ...]
+# Runs command in a layer on top of the current image and commits changes.
+# The resulting image will be used for the next step in Dockerfile.
+#
+# CMD ["executable", "param1",...] or CMD command param1 param2 ... (shell command)
+# Only one CMD statement is allowed in Dockerfile.
+# Provides default for and executing container.
+#
+# EXPOSE <port>[/<port number>]
+# Informs docker that container is listening at a specific port at runtime.
+#
+# ADD <dir1> ... <destination> or ADD ["<dir1>", ..., "<destination>"]
+# Copies files, directories or url from <dir> to the filesystem of the image at the path <destination>.
+# <dir> is relative to dir where is being build.
+# <destination> is absolute or path relative to WORKDIR.
+# Dirs in <destination> which don't exist are created automatically.
+#
+# VOLUME ["/data"] or VOLUME /data
+# Creates mounting point with a given name and marks it as holding externally mounted volume from native host or other container.
+# If directory exists on the host then content is copied.
+# Any changes to volume dir in Dockerfile is diregarded.
+#
+# WORKINGDIR <dir>
+# Working dir for RUN, CMD, ENTRYPOINT, COPY and ADD commands.
+# If relative it is relative to previous WORKINGDIR.
+# Can be more then one statement in Dockerfile.
+#
+# ARG <name> [=<default_value]
+# Defines argument that can be passed to the builder at build time with cmd arg -build-arg <variable>=<value>.
+# Goes out of scope at the end of buld stage (next FROM).
+
+
+FROM $1
+
+WORKDIR $2
+
+ADD $3
+
+RUN $4
+
+EXPOSE $5
+
+CMD $6
+endsnippet
+
+snippet dockerdock "Docker documentation"
+# Generalizations:
+# 1. Container: running instance of immage.
+# 2. Service: building blocks of app.
+# 3. Stack: group of interdependent serices that share dependencies and can be scaled together.
+#
+# Features:
+# Faster than virtualbox since it is virtualization on os level.
+# Easy to deploy app and reproduce research.
+#
+# Dockerfile:
+# Used to build image. Building in layers.
+#
+# Composefile:
+# Yml file defining services, networks and volumes (stack level).
+# Configuration is for every container started for the service.
+# Dockerfile config is respected no need to repeat config.
+#
+# Command summary:
+# Build image: docker build -t <name> <Dockerfile dir>
+# Run container: docker run -d (detached) -p <port host>:<port container> <image>
+# Swarm:
+#   docker-machine create --driver virtualbox <name>
+#   docker-machine ssh <name> "docker swarm init"
+#   eval $(docker-machine env <name>)
+#   docker-machine rm <name>
+#   eval $(docker-machine env -u)
+# Deploy/Upload stack: docker stack deploy -c <composefile> <stack name>
+endsnippet
+
+snippet dockercompose "Snippet for docker compoes file."
+# Dockercompose file commands.
+#
+# (services)
+# image: <image>
+# Specific image to start container from.
+#
+# deploy:
+# Specific configuration related to deployment and removing of services.
+# Only take effect when deploying on swarm with docker stack deploy.
+#
+# -----------------
+# (services-deploy)
+# replicas: <number>
+# Specific number of containers that should be running at any given time.
+#
+# resources:
+# Configure resource constraints.
+#
+# placement:
+#   constraints: [node.role == manager]
+# Runing container only on manager for db servers.
+# -----------------
+#
+# networks:
+#   - <network name>
+# Networks to join.
+#
+# ports:
+#   - "<port host>:<port container>"
+# Expose ports.
+#
+# volumes:
+#   - <host dir>:<container dir> or "<host socket>:<container socket>"
+# Mounting host paths or named volumes, specified as sub option to services.
+# For databases who should preserve data when container is killed.
+#
+# (networks)
+# <network_name>:
+# Defines network for a stack.
+#
+# (volumes)
+# <volume_name>:
+# Defines named volume for a network.
+
+version: "3"
+services:
+	web:
+		image: ${1:username/repo:tag}
+		deploy:
+			replicas: 5
+			resources:
+				limits:
+					cpus: "0.1"
+					memory: 50M
+			restart_policy:
+				condition: on-failure
+			placement:
+				constraints: [node.role == manager]
+		ports:
+			- ${2:"80:80"}
+		volumes:
+			- "/var/run/docker.sock:/var/run/docker.sock"
+			- /home/docker/data:/data
+		networks:
+			- webnet
+networks:
+	webnet:
+endsnippet

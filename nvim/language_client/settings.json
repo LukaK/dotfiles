@@ -1,0 +1,18 @@
+{
+    "pyls": {
+        "plugins": {
+            "pyflakes": {
+                "enabled": true
+            },
+            "pydocstyle": {
+                "enabled": false
+            },
+            "pycodestyle": {
+                "enabled": false
+            },
+            "flake8": {
+                "enabled": false
+            }
+        }
+    }
+}
