@@ -1,0 +1,27 @@
+snippet jqinit "Template for starting jQuery"
+$(document).ready(function() {
+	$0
+});
+endsnippet
+
+snippet $ "JQ quoted template"
+$('${1:selector}').$0;
+endsnippet
+
+snippet $i "JQ id template"
+$('#${1:selector}').$0;
+endsnippet
+
+snippet $c "JQ class template"
+$('.${1:selector}').$0;
+endsnippet
+
+snippet $t "JQ this template"
+$(this).$0;
+endsnippet
+
+snippet on "JQ on event template"
+$(${1:this}).on('${2:event}', function (){
+	$0
+});
+endsnippet

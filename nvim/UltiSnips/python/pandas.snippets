@@ -1,0 +1,41 @@
+snippet pandas_doc "one pager for pandas library"
+# pandas adds indexes(rows) and labels(columns) to numpy lib.
+# DataFrame is 2D data structure.
+# Series is 1D data structure.
+# Use data as immutable objects.
+# Indexing can be by labels and by numbers (labels prefered).
+#
+#
+# dataframe is aliased as df
+#
+# Data prep:
+# column rename: df.columns = ['col1', 'col2', ...]
+#
+# Data analysis:
+# column type: df.dtypes
+# head of data: df.head
+#
+# Subeting:
+# by column: df[['col1', 'col2', ...]]
+# by row label: df.loc[['row1', 'row2', ...]]
+# by row number: df.iloc[[row1, row2, ...]]
+# by row and column: df.loc[[rows], [columns]]
+#
+# Combining and merging:
+# combining: pandas.concat([df1, ...], axis=<0 or 1>)
+# merging: df1.merge(df2, left_on=<df1_key>, right_on=<df2_key>)
+#
+# File read/write
+# read: pandas.from_csv(...)
+# writing: df.to_csv(...)
+#
+# Transformation:
+# rows: df.loc['row_label'].apply(function)
+# columns: df['col_label'].apply(function)
+#
+# Plot:
+# use seaborn library: seaborn.<plot_name>(df.<column>)
+#
+# Nul values:
+# searching by null value: data.loc[pandas.is_null(data.<column>), [columns]]
+endsnippet
