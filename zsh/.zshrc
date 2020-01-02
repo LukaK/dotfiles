@@ -167,7 +167,7 @@ alias grb='git rebase $(git branch | fzf)'
 source /usr/bin/virtualenvwrapper.sh
 
 # fuzzy finder config
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/..config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 
 # screen lock
 alias lck='/usr/bin/xscreensaver-command --lock'
