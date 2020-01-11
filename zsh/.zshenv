@@ -12,10 +12,11 @@ export XDG_VTNR=1
 export XDG_RUNTIME_DIR="/run/user/1000"
 export XDG_CONFIG_HOME="/home/luka/.config"
 export XDG_DATA_HOME="/home/luka/.config"
+export XDG_CURRENT_DESKTOP="i3"
 
 # virtualenvwrapper
 export WORKON_HOME="$HOME/.virtualenvs"
-export PROJECT_HOME="$HOME/WorkingDirectory"
+export PROJECT_HOME="$HOME/Projects"
 export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
 
 # fzf (fuzzy finding)

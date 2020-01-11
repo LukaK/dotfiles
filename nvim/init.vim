@@ -179,7 +179,6 @@ autocmd! BufWritePost /home/luka/.config/nvim/init.vim source %
 " ----------
 set runtimepath+=~/.config/nvim
 let g:UltiSnipsEditSplit="vertical"
-" let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
 let g:UltiSnipsSnippetDir=$HOME.'/.config/nvim/UltiSnips'
 let g:UltiSnipsPythonVersion=3
 let g:UltiSnipsJumpForwardTrigger="<leader>a"
@@ -232,11 +231,11 @@ let g:LanguageClient_fzfOptions = ""
 let g:LanguageClient_diagnosticsList = "Quickfix"
 let g:LanguageClient_windowLogMessageLevel = "Warning"
 let g:LanguageClient_hasSnippetSupport = 1
-let g:LanguageClient_useVirtualText = 0
+let g:LanguageClient_useVirtualText = "No"
 let g:LanguageClient_useFloatingHover = 1
 
 " server settings
-let g:LanguageClient_settingsPath = "~/.config/nvim/language_client/settings.json"
+let g:LanguageClient_settingsPath = $HOME."/.config/nvim/language_client/settings.json"
 let g:LanguageClient_loadSettings = 1
 
 " project root configurations

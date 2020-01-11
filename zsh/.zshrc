@@ -78,6 +78,7 @@ then
         sudo
         fzf
         timer
+        aws
     )
 else
     plugins=(
@@ -87,6 +88,7 @@ else
         fzf
         tmux
         timer
+        aws
     )
 fi
 
@@ -176,3 +178,5 @@ alias lck='/usr/bin/xscreensaver-command --lock'
 
 # set ls colors for solarized color scheme
 eval `dircolors $HOME/.dir_colors/dircolors.256dark`
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
