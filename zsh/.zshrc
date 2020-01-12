@@ -167,6 +167,7 @@ alias gbrm='git branch  -d $(git branch | fzf)'
 alias gmg='git merge --no-ff $(git branch | fzf)'
 alias grb='git rebase $(git branch | fzf)'
 alias gca='git commit -m'
+alias gl='git log --pretty=oneline'
 
 # virtualenvwrapper
 source /usr/bin/virtualenvwrapper.sh
