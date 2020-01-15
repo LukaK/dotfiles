@@ -86,7 +86,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Shougo/echodoc.vim'
 
 " Yaml files
-Plug 'mrk21/yaml-vim'
+" Plug 'mrk21/yaml-vim'
 
 " Code formatting
 Plug 'sbdchd/neoformat'
@@ -222,6 +222,7 @@ set formatexpr=LanguageClient_textDocument_rangeFormatting()
 " server startup command
 let g:LanguageClient_serverCommands = {
 \ 'python': ['/usr/bin/pyls'],
+\ "yaml": [ "node",  $HOME."node_modules/yaml-language-server/out/server/src/server.js", '--stdio' ],
 \ }
 
 let g:LanguageClient_autoStart = 1
@@ -241,7 +242,7 @@ let g:LanguageClient_loadSettings = 1
 " project root configurations
 let g:LanguageClient_rootMarkers = {
 \ "python": ['.project'],
-\ "yaml": [ $HOME."node_modules/yaml-language-server/out/server/src/server.js", '--stdio' ],
+\ "yaml": ['.project'],
 \}
 
 " nnoremap <silent> <leader>g :call LanguageClient#textDocument_definition()<CR>
