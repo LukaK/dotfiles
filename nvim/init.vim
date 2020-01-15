@@ -241,6 +241,7 @@ let g:LanguageClient_loadSettings = 1
 " project root configurations
 let g:LanguageClient_rootMarkers = {
 \ "python": ['.project'],
+\ "yaml": [ $HOME."node_modules/yaml-language-server/out/server/src/server.js", '--stdio' ],
 \}
 
 " nnoremap <silent> <leader>g :call LanguageClient#textDocument_definition()<CR>
