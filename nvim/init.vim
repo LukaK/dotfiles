@@ -123,6 +123,7 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos="left"
 let NERDTreeShowFiles=1
 let NERDTreeChDirMode=2
+let NERDTreeWinSize=45
 
 " Open nerd tree and move cursor to the file position
 autocmd VimEnter * NERDTree | wincmd p
