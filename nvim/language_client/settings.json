@@ -19,7 +19,11 @@
         "format": {
             "enable": false
         },
-        "validate": true
+        "completion": true,
+        "validate": true,
+        "schemas": {
+            "AWS CloudFormation Serverless Application Model (SAM)": "/*"
+        }
     },
     "http": {
         "proxyStrictSSL": true

@@ -168,7 +168,8 @@ set nu
 filetype on
 filetype plugin on
 filetype indent on
-set shiftwidth=4
+" set shiftwidth=4
+set shiftwidth=2
 
 " sourcing nvim config on save
 autocmd! BufWritePost /home/luka/.config/nvim/init.vim source %
@@ -192,7 +193,7 @@ let g:UltiSnipsExpandTrigger="<leader>e"
 " gutentags
 " ----------
 set statusline+=%{gutentags#statusline()}
-let g:gutentags_exclude_filetypes=['yml', 'yaml']
+" let g:gutentags_exclude_filetypes=['yml', 'yaml']
 " ----------
 
 " ----------
@@ -223,7 +224,7 @@ set formatexpr=LanguageClient_textDocument_rangeFormatting()
 " server startup command
 let g:LanguageClient_serverCommands = {
 \ 'python': ['/usr/bin/pyls'],
-\ "yaml": [ "node",  $HOME."node_modules/yaml-language-server/out/server/src/server.js", '--stdio' ],
+\ "yaml": [ "yaml-language-server", '--stdio' ],
 \ }
 
 let g:LanguageClient_autoStart = 1
