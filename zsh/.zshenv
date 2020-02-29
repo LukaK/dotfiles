@@ -25,3 +25,8 @@ export FZF_DEFAULT_COMMAND='fd --type f --exclude .git --follow --hidden'
 export FZF_DEFAULT_OPTS='-i --height 40% --reverse --border'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d --exclude .git --follow --hidden"
+
+# glue environment with spark
+export PATH="$HOME/lib/apache-maven-3.6.0/bin:$PATH"
+export SPARK_HOME="$HOME/lib/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8"
+export PATH="$HOME/lib/aws-glue-libs/bin:$PATH"
