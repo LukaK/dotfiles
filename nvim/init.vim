@@ -362,6 +362,10 @@ autocmd InsertLeave * if pumvisible() == 0| pclose|endif
 " Scrolling speedup
 set nocursorline
 
+" Shifting visual block of texts
+vnoremap > >gv
+vnoremap < <gv
+
 " Healthcheck
 let g:python_host_prog='/usr/bin/python2'
 let g:python3_host_prog='/usr/bin/python3'
