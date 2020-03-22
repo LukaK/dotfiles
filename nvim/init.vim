@@ -54,7 +54,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 "Autocomplete
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-ultisnips'
-" Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-jedi'
 Plug 'roxma/nvim-yarp'
 
 " Use tab for completion
