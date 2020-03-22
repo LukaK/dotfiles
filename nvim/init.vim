@@ -45,17 +45,19 @@ Plug 'tpope/vim-surround'
 " Line commenter
 Plug 'vim-scripts/tComment'
 
-" Language Client
-Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ }
-
 "Autocomplete
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'ncm2/ncm2-jedi'
 Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-github'
+Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+Plug 'filipekiss/ncm2-look.vim'
+Plug 'yuki-ycino/ncm2-dictionary'
+Plug 'fgrsnau/ncm2-aspell'
+Plug 'fgrsnau/ncm2-otherbuf'
 
 " Use tab for completion
 Plug 'ervandew/supertab'
@@ -211,48 +213,6 @@ set completeopt=noinsert,menuone,noselect,preview
 
 set shortmess+=c
 let g:ncm2#matcher="substrfuzzy"
-" ----------
-
-" ----------
-" LanguageClient
-" ----------
-set signcolumn=yes
-set hidden
-" set completefunc=LanguageClient#complete
-set formatexpr=LanguageClient_textDocument_rangeFormatting()
-
-" server startup command
-let g:LanguageClient_serverCommands = {
-\ 'python': ['/usr/bin/pyls'],
-\ "yaml": [ "yaml-language-server", '--stdio' ],
-\ }
-
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_autoStop = 1
-let g:LanguageClient_selectionUI = "fzf"
-let g:LanguageClient_fzfOptions = ""
-let g:LanguageClient_diagnosticsList = "Quickfix"
-let g:LanguageClient_windowLogMessageLevel = "Warning"
-let g:LanguageClient_hasSnippetSupport = 1
-let g:LanguageClient_useVirtualText = "No"
-let g:LanguageClient_useFloatingHover = 1
-
-" server settings
-let g:LanguageClient_settingsPath = $HOME."/.config/nvim/language_client/settings.json"
-let g:LanguageClient_loadSettings = 1
-
-" project root configurations
-let g:LanguageClient_rootMarkers = {
-\ "python": ['.project'],
-\ "yaml": ['.project'],
-\}
-
-" nnoremap <silent> <leader>g :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <leader>R :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <leader>G :call LanguageClient_textDocument_definition()<CR>:normal! m`<CR>
-nnoremap <silent> <leader>p :call LanguageClient_textDocument_formatting()<CR>:normal! m`<CR>
-nnoremap <silent> <leader>r :call LanguageClient#textDocument_references()<CR>
 " ----------
 
 " ----------
