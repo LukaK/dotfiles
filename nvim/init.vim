@@ -33,7 +33,7 @@ Plug 'vim-airline/vim-airline'
 " Tags display
 Plug 'majutsushi/tagbar'
 
-" Generating ctags file automatically
+" Generating tags file automatically
 Plug 'ludovicchabant/vim-gutentags'
 
 " Git repository management
@@ -47,9 +47,9 @@ Plug 'vim-scripts/tComment'
 
 "Autocomplete
 Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'ncm2/ncm2-jedi'
-Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-github'
@@ -86,9 +86,6 @@ Plug 'junegunn/fzf.vim'
 
 " Echo documentation
 Plug 'Shougo/echodoc.vim'
-
-" Yaml files
-" Plug 'mrk21/yaml-vim'
 
 " Code formatting
 Plug 'sbdchd/neoformat'
@@ -140,8 +137,8 @@ nnoremap <silent> <leader>nt :NERDTreeToggle<CR><C-W>l
 " ----------
 " tagbar
 " ----------
-" Open nerd tree and move cursor to the file position
 autocmd VimEnter * TagbarOpen | wincmd p
+let g:tagbar_autoclose=0
 " ----------
 
 " ----------
@@ -195,7 +192,13 @@ let g:UltiSnipsExpandTrigger="<leader>e"
 " gutentags
 " ----------
 set statusline+=%{gutentags#statusline()}
-" let g:gutentags_exclude_filetypes=['yml', 'yaml']
+let g:gutentags_exclude_filetypes=['yml', 'yaml',  'html', 'json']
+let g:gutentags_ctags_exclude=['*.yml', '*yaml', '*.html', '*.json']
+let g:gutentags_file_list_command={
+      \ "markers": {
+        \  '.git': 'git ls-files',
+        \},
+\}
 " ----------
 
 " ----------
@@ -210,7 +213,6 @@ map <leader>J <Plug>(easymotion-F)
 " ----------
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect,preview
-
 set shortmess+=c
 let g:ncm2#matcher="substrfuzzy"
 " ----------
