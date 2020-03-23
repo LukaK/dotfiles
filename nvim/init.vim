@@ -306,7 +306,7 @@ nnoremap <C-b> :bnext<CR>
 nnoremap <C-B> :bNext<CR>
 
 " Goto definition
-nnoremap <leader>g <C-]>
+nnoremap <leader>g g<C-]>
 nnoremap <leader>b <C-o>
 
 " Remove trailing whitespaces
