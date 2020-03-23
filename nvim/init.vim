@@ -207,7 +207,18 @@ let g:gutentags_file_list_command={
 " ----------
 " ale
 " ----------
-" ----------
+let b:ale_linters = {'python': ['flake8']}
+let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:airline#extensions#ale#enabled = 1
+" TODO: Change ale mappings for moving between errors
+" TODO: Disable warnings? Or maybe something different.
+" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"----------
 
 " ----------
 " easymotion
