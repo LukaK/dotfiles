@@ -59,6 +59,9 @@ Plug 'yuki-ycino/ncm2-dictionary'
 Plug 'fgrsnau/ncm2-aspell'
 Plug 'fgrsnau/ncm2-otherbuf'
 
+" Linting
+Plug 'dense-analysis/ale'
+
 " Use tab for completion
 Plug 'ervandew/supertab'
 
@@ -199,6 +202,11 @@ let g:gutentags_file_list_command={
         \  '.git': 'git ls-files',
         \},
 \}
+" ----------
+
+" ----------
+" ale
+" ----------
 " ----------
 
 " ----------
