@@ -31,7 +31,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 
 " Tags display
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 
 " Generating tags file automatically
 Plug 'ludovicchabant/vim-gutentags'
@@ -137,12 +137,12 @@ nmap <leader>nf :NERDTreeFind<CR>
 nnoremap <silent> <leader>nt :NERDTreeToggle<CR><C-W>l
 " ----------
 
-" ----------
-" tagbar
-" ----------
-autocmd VimEnter * TagbarOpen | wincmd p
-let g:tagbar_autoclose=0
-" ----------
+" " ----------
+" " tagbar
+" " ----------
+" autocmd VimEnter * TagbarOpen | wincmd p
+" let g:tagbar_autoclose=0
+" " ----------
 
 " ----------
 " vim-airline
@@ -214,8 +214,7 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:airline#extensions#ale#enabled = 1
-" TODO: Change ale mappings for moving between errors
-" TODO: Disable warnings? Or maybe something different.
+" TODO: Change ale mappings for moving between errors if you need this.
 " nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 " nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "----------
