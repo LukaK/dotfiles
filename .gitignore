@@ -3,3 +3,6 @@
 *.swp
 tags
 .project
+
+newsboat/cache.db
+newsboat/history.search
