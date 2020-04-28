@@ -73,6 +73,9 @@ Plug 'jiangmiao/auto-pairs'
 
 " Snippet solution for vim
 Plug 'SirVer/ultisnips'
+" TODO: test if you can load custom snippets and integrates well
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " Snippet files for various languages
 Plug 'honza/vim-snippets'
@@ -207,7 +210,8 @@ let g:gutentags_file_list_command={
 " ----------
 " ale
 " ----------
-let b:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {'python': ['flake8']}
+" let g:ale_linters_ignore = {'python': ['pylint']}
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:ale_echo_msg_error_str = 'E'
@@ -349,3 +353,6 @@ vnoremap < <gv
 " Healthcheck
 let g:python_host_prog='/usr/bin/python2'
 let g:python3_host_prog='/usr/bin/python3'
+
+" Spell checking
+set spell
