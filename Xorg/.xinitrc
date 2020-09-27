@@ -56,7 +56,7 @@ fi
 /usr/bin/xscreensaver -nosplash &
 
 # setup wallpapers
-/usr/bin/feh --randomize --bg-fill ~/Pictures/Wallpapers/wallpaper1.jpg &
+/usr/bin/feh --randomize --bg-fill ~/Pictures/Wallpapers/cave_nature.jpg &
 
 # start i3 wm
 exec i3

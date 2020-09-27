@@ -94,10 +94,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'Shougo/echodoc.vim'
 
 " Code formatting
-Plug 'sbdchd/neoformat'
+Plug 'psf/black', { 'branch': 'stable' }
 
 " Virtualenv wrapper for python
 Plug 'jmcantrell/vim-virtualenv'
+
+" Sorting imports
+Plug 'tweekmonster/impsort.vim'
 
 " Yank highlighter
 Plug 'machakann/vim-highlightedyank'
@@ -151,6 +154,11 @@ nnoremap <silent> <leader>nt :NERDTreeToggle<CR><C-W>l
 " vim-airline
 " ----------
 set noshowmode
+let g:airline_left_sep  = ''
+let g:airline_right_sep = ''
+let g:airline#extensions#ale#enabled = 1
+let airline#extensions#ale#error_symbol = 'E:'
+let airline#extensions#ale#warning_symbol = 'W:'
 " ----------
 
 " ----------
@@ -173,8 +181,7 @@ set nu
 filetype on
 filetype plugin on
 filetype indent on
-" set shiftwidth=4
-set shiftwidth=2
+set shiftwidth=4
 
 " sourcing nvim config on save
 autocmd! BufWritePost /home/luka/.config/nvim/init.vim source %
@@ -211,18 +218,23 @@ let g:gutentags_file_list_command={
 " ale
 " ----------
 let g:ale_linters = {'python': ['flake8']}
-" let g:ale_linters_ignore = {'python': ['pylint']}
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:airline#extensions#ale#enabled = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'never'
 " TODO: Change ale mappings for moving between errors if you need this.
 " nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 " nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "----------
 
+" ----------
+" import sort for python - impsort
+" ----------
+autocmd BufWritePre *.py ImpSort!
 " ----------
 " easymotion
 " ----------
@@ -263,19 +275,9 @@ let g:echodoc_enable_at_startup=1
 " ----------
 
 " ----------
-"  neoformat
+"  black
 " ----------
-let g:neoformat_enabled_python = ['yapf']
-" noremap <silent> <leader>p :Neoformat<cr>
-
-" Enable alignment
-let g:neoformat_basic_format_align = 1
-
-" Enable tab to spaces conversion
-let g:neoformat_basic_format_retab = 1
-
-" Enable trimmming of trailing whitespace
-let g:neoformat_basic_format_trim = 1
+autocmd BufWritePre *.py execute ':Black'
 " ----------
 
 set backspace=2
@@ -333,6 +335,7 @@ nnoremap <leader>b <C-o>
 
 " Remove trailing whitespaces
 autocmd BufWritePre *.py %s/\s\+$//e
+autocmd BufWritePre *.yaml %s/\s\+$//e
 
 " quickfix window
 nmap <leader>q :bel cw<CR>
@@ -353,6 +356,16 @@ vnoremap < <gv
 " Healthcheck
 let g:python_host_prog='/usr/bin/python2'
 let g:python3_host_prog='/usr/bin/python3'
+
+" searching
+set ignorecase
+set smartcase
+
+" Ignore when globing
+set wildignore+=*/.git/*,*/.svn/*,*/__pycache__/*,*/build/**
+set wildignore+=*.pyc
+
+set fileformat=unix
 
 " Spell checking
 set spell
