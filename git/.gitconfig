@@ -16,3 +16,5 @@
 	pager = less -F
 [merge]
 	ff = false
+[commit]
+	template = /home/luka/dotfiles/git/git_message
