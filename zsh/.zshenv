@@ -30,3 +30,6 @@ export FZF_ALT_C_COMMAND="fd -t d --exclude .git --follow --hidden"
 export PATH="$HOME/lib/apache-maven-3.6.0/bin:$PATH"
 export SPARK_HOME="$HOME/lib/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8"
 export PATH="$HOME/lib/aws-glue-libs/bin:$PATH"
+
+# ruby packages
+export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
