@@ -112,7 +112,7 @@ set $ws4 "4:Work"
 # set $ws2 "2"
 # set $ws3 "3"
 # set $ws4 "4"
-set $ws5 "5"
+set $ws5 "5:Comms"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -190,6 +190,9 @@ assign [class="KeePass"] $ws2
 assign [class="Thunderbird"] $ws3
 assign [class="Franz"] $ws4
 assign [class="Slack"] $ws4
+assign [class="Viber"] $ws5
+assign [class="Signal"] $ws5
+assign [class="discord"] $ws5
 
 # default layouts
 for_window [class="Chromium"] layout stacking
@@ -201,3 +204,6 @@ for_window [class="Slack"] layout stacking
 # exec --no-startup-id i3-msg 'workspace 2:Web; exec /usr/bin/firefox'
 exec --no-startup-id i3-msg 'exec /usr/bin/chromium'
 exec --no-startup-id i3-msg 'exec /usr/bin/thunderbird'
+
+
+exec --no-startup-id i3-msg 'exec /usr/bin/dex -a'
