@@ -113,7 +113,7 @@ set $ws4 "4:Work"
 # set $ws3 "3"
 # set $ws4 "4"
 set $ws5 "5:Comms"
-set $ws6 "6"
+set $ws6 "6:Games"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -193,6 +193,7 @@ assign [class="Slack"] $ws4
 assign [class="Viber"] $ws5
 assign [class="Signal"] $ws5
 assign [class="discord"] $ws5
+assign [class="Steam"] $ws6
 
 # default layouts
 for_window [class="Chromium"] layout stacking

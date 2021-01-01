@@ -33,3 +33,6 @@ export PATH="$HOME/lib/aws-glue-libs/bin:$PATH"
 
 # ruby packages
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+
+# vulkan configuration
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.i686.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json

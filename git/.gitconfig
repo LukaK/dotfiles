@@ -15,6 +15,6 @@
 	excludesfile = ~/.gitignore_global
 	pager = less -F
 [merge]
-	ff = false
+	ff = true
 [commit]
 	template = /home/luka/dotfiles/git/git_message

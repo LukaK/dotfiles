@@ -6,9 +6,9 @@ then
         exit 0
 fi
 
-if [[ $(xrandr | grep "DP-2-3 connected") ]]
+if [[ $(xrandr | grep "DP-1-3 connected") ]]
 then
-        xrandr --auto --output eDP-1 --off --output DP-2-3 --mode 1920x1080 --primary
+        xrandr --auto --output eDP-1 --off --output DP-1-3 --mode 1920x1080 --primary
         exit 0
 fi
 

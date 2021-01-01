@@ -45,6 +45,7 @@ Plug 'tpope/vim-surround'
 " Line commenter
 Plug 'vim-scripts/tComment'
 
+" TODO: See if you need it in new configuration
 "Autocomplete
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
@@ -62,6 +63,7 @@ Plug 'fgrsnau/ncm2-otherbuf'
 " Linting
 Plug 'dense-analysis/ale'
 
+" TODO: See if you need it in new configuration
 " Use tab for completion
 Plug 'ervandew/supertab'
 
@@ -86,10 +88,12 @@ Plug 'christoomey/vim-tmux-navigator'
 " Quick find based on the letter
 Plug 'Lokaltog/vim-easymotion'
 
+" TODO: See if you need it in new configuration
 " Fuzzy finder for vim
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 
+" TODO: See if you need it in new configuration
 " Echo documentation
 Plug 'Shougo/echodoc.vim'
 
@@ -99,6 +103,7 @@ Plug 'psf/black', { 'branch': 'stable' }
 " Virtualenv wrapper for python
 Plug 'jmcantrell/vim-virtualenv'
 
+" TODO: See if you need it in new configuration
 " Sorting imports
 Plug 'tweekmonster/impsort.vim'
 
@@ -329,6 +334,7 @@ augroup END
 nnoremap <C-b> :bnext<CR>
 nnoremap <C-B> :bNext<CR>
 
+" TODO: See how goto definition works in new vim config
 " Goto definition
 nnoremap <leader>g g<C-]>
 nnoremap <leader>b <C-o>
@@ -344,6 +350,7 @@ nmap <leader>ep :cp<CR>
 
 " Preview window config: down and close on exit
 set splitbelow
+" TODO: See if this is needed
 autocmd InsertLeave * if pumvisible() == 0| pclose|endif
 
 " Scrolling speedup
