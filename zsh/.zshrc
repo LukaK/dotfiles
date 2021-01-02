@@ -1,4 +1,10 @@
-# End of lines added by compinstall
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,13 +14,13 @@ export ZSH="/home/luka/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="blinks"
-ZSH_THEME="agnoster"
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="gnzh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -32,10 +38,10 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -66,31 +72,17 @@ HYPHEN_INSENSITIVE="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-if [[ -o login ]]
-then
-    plugins=(
-        # git-prompt
-        # git
-        sudo
-        fzf
-        timer
-        aws
-    )
-else
-    plugins=(
-        # git-prompt
-        # git
-        sudo
-        fzf
-        tmux
-        timer
-        aws
-    )
-fi
+plugins=(
+	git
+	archlinux
+	zsh-syntax-highlighting
+	aws
+	fzf
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -119,43 +111,23 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=500
-SAVEHIST=500
 
-setopt appendhistory autocd nomatch
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# turn off beeping
 unsetopt beep extendedglob
+
+# set vi shell mode
 bindkey -v
-
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/luka/.zshrc'
-
-autoload -Uz compinit
-compinit
 
 # ALIASES
 # miscelaneous
 alias trd="transmission-daemon"
 alias trr="transmission-remote"
 
-# systemd alias
-alias sls='sudo systemctl'
-alias slu='systemctl --user'
-alias jl='journalctl'
-alias jle='journalctl -b -p err'
-
 # nvim aliases
-alias vi='nvim'
-alias vim='nvim'
-
-# pip alias
-alias pip-update='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
-
-# dropbox aliases
-alias dropenc='xclip -o | encfs -S ~/Dropbox/Encripted/ ~/Private/'
-alias dropencu='fusermount -u ~/Private/'
+alias v='nvim'
 
 # git aliases
 alias g='git'
@@ -174,11 +146,7 @@ source /usr/bin/virtualenvwrapper.sh
 
 # fuzzy finder config
 [ -f ~/..config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-
-# screen lock
-alias lck='/usr/bin/xscreensaver-command --lock'
-
-# set ls colors for solarized color scheme
-eval `dircolors $HOME/.dir_colors/dircolors.256dark`
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# add solarized colors to the terminal
+eval `dircolors $HOME/.config/dircolors/dircolors.256dark`

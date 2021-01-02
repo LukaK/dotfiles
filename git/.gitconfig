@@ -12,9 +12,9 @@
 [push]
 	default = matching
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.config/git/gitignore_global
 	pager = less -F
 [merge]
 	ff = true
 [commit]
-	template = /home/luka/dotfiles/git/git_message
+	template = ~/dotfiles/git/git_message
