@@ -325,6 +325,10 @@ exec dropbox
 # Keybinding for i3lock
 bindsym $mod+x exec $HOME/.config/scripts/lock.sh
 
+# Keybinding for starting chrome browser
+bindsym $mod+b exec google-chrome-stable
+
+
 # Assign programs to workspaces
 # Start xprop in terminal and left click on the window of the desired program
 # Programm class is the second value in WM_CLASS (STRING) variable
