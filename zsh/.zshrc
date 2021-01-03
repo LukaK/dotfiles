@@ -150,3 +150,8 @@ source /usr/bin/virtualenvwrapper.sh
 
 # add solarized colors to the terminal
 eval `dircolors $HOME/.config/dircolors/dircolors.256dark`
+
+# initialize pyenv environment
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

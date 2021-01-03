@@ -36,3 +36,6 @@ export FZF_ALT_C_COMMAND="fd -t d --exclude .git --follow --hidden"
 
 # vulkan configuration
 #export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.i686.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json
+
+# pyenv env variables
+export PYENV_ROOT="$HOME/.pyenv"
