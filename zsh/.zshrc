@@ -77,11 +77,12 @@ export UPDATE_ZSH_DAYS=7
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	archlinux
-	zsh-syntax-highlighting
-	aws
-	fzf
+    git
+    archlinux
+    zsh-syntax-highlighting
+    aws
+    fzf
+    aws
 )
 
 source $ZSH/oh-my-zsh.sh
