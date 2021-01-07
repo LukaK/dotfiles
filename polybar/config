@@ -62,7 +62,7 @@ font-5 = Font Awesome 5 Brands:pixelsize=12;2
 modules-left = i3
 ; modules-center = xwindow pacman-updates spotify
 modules-center = pacman-updates spotify
-modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = wlan eth pulseaudio xkeyboard filesystem memory cpu temperature battery date powermenu
 
 separator = |
 
@@ -92,7 +92,6 @@ interval = 1
 format-prefix = " "
 format = <label>
 exec = python /home/luka/.config/polybar/spotify_status.py -f '{artist}: {song}'
-format-underline = #1db954
 
 [module/xwindow]
 type = internal/xwindow
@@ -104,15 +103,12 @@ blacklist-0 = num lock
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
@@ -230,9 +226,10 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
+
+format = <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
 label = %percentage:2%%
 
 [module/memory]
@@ -240,7 +237,6 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
 label = %percentage_used%%
 
 [module/wlan]
@@ -248,38 +244,21 @@ type = internal/network
 interface = wlp2s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
+format-connected =  <label-connected>
+label-connected = "%essid% : %signal% dB ( %downspeed% :  %upspeed%)"
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
 interface = enp3s0
 interval = 3.0
 
-format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = "%linkspeed%"
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
@@ -293,7 +272,6 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
 label = %date% %time%
 
@@ -358,32 +336,18 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+label-charging = " %percentage%%"
+format-charging = <label-charging>
+format-charging-underline = #84ED78
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+label-discharging = " %percentage%%"
+format-discharging = <label-discharging>
+format-discharging-underline = #FFB52A
 
-format-full-prefix = " "
+
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
@@ -391,17 +355,16 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
 label = %temperature-c%
-label-warn = %temperature-c%
+
+format-warn = <ramp> <label-warn>
+format-warn-underline = #f50a4d
+label-warn =  %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
 [module/pacman-updates]
@@ -411,7 +374,7 @@ interval = 1000
 label = Updates: %output%
 format-foreground = ${colors.foreground}
 format-prefix = " "
-format-prefix-foreground = #ff0000
+; format-prefix-foreground = #ff0000
 
 [module/powermenu]
 type = custom/menu
