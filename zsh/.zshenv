@@ -1,7 +1,10 @@
 # general variables
-#export PATH="$PATH:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin"
 export EDITOR=nvim
 export VISUAL=nvim
+
+# ruby configuration
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
 
 # ohmyzsh env variables
 export DEFAULT_USER="luka"
@@ -27,12 +30,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d --exclude .git --follow --hidden"
 
 # glue environment with spark
-#export PATH="$HOME/lib/apache-maven-3.6.0/bin:$PATH"
-#export SPARK_HOME="$HOME/lib/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8"
-#export PATH="$HOME/lib/aws-glue-libs/bin:$PATH"
-
-# ruby packages
-#export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+export PATH="$HOME/Libs/apache-maven-3.6.0/bin:$PATH"
+export SPARK_HOME="$HOME/Libs/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8"
+export PATH="$HOME/Libs/aws-glue-libs/bin:$PATH"
 
 # vulkan configuration
 #export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.i686.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json
