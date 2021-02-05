@@ -267,4 +267,4 @@ for_window [class="zoom"] move to workspace $ws6
 for_window [class="Franz"] move to workspace $ws7
 
 # Default layouts
-# for_window [class="Google-chrome"] layout stacking
+# for_window [class="Chromium"] layout stacking
