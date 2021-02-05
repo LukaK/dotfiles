@@ -228,7 +228,8 @@ mode "$mode_gaps_inner" {
 }
 
 # Resolution setup
-exec_always $HOME/.screenlayout/default.sh
+# exec_always $HOME/.screenlayout/default.sh
+exec_always $HOME/.screenlayout/home_setup.sh
 
 # Nitrogen
 exec nitrogen --restore
@@ -248,14 +249,15 @@ exec dropbox
 # Keybinding for i3lock
 bindsym $mod+x exec $HOME/.config/scripts/lock.sh
 
-# Keybinding for starting chrome browser
-bindsym $mod+b exec google-chrome-stable
+# Keybinding
+bindsym $mod+b exec chromium
+bindsym $mod+t exec thunderbird
 
 
 # Assign programs to workspaces
 # Start xprop in terminal and left click on the window of the desired program
 # Programm class is the second value in WM_CLASS (STRING) variable
-for_window [class="Google-chrome"] move to workspace $ws2
+for_window [class="Chromium"] move to workspace $ws2
 for_window [class="KeePassXC"] move to workspace $ws2
 for_window [class="Viber"] move to workspace $ws3
 for_window [class="discord"] move to workspace $ws3
