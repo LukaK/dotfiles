@@ -145,10 +145,6 @@ alias gl='git log --pretty=oneline'
 # virtualenvwrapper
 source /usr/bin/virtualenvwrapper.sh
 
-# fuzzy finder config
-[ -f ~/..config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # add solarized colors to the terminal
 eval `dircolors $HOME/.config/dircolors/dircolors.256dark`
 
