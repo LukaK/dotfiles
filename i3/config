@@ -235,7 +235,7 @@ exec_always $HOME/.screenlayout/home_setup.sh
 exec nitrogen --restore
 
 # Picom
-exec picom -f
+exec picom --config $HOME/.config/picom/picom.conf
 
 # Polybar launch script
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
