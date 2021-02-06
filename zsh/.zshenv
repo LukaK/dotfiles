@@ -23,7 +23,6 @@ export PROJECT_HOME="$HOME/Workspace"
 export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
 
 # fzf (fuzzy finding)
-# export FZF_BASE="$HOME/.config/fzf"
 export FZF_DEFAULT_COMMAND='fd --type f --exclude .git --follow --hidden'
 export FZF_DEFAULT_OPTS='-i --height 40% --reverse --border'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -35,7 +34,7 @@ export SPARK_HOME="$HOME/Libs/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8"
 export PATH="$HOME/Libs/aws-glue-libs/bin:$PATH"
 
 # vulkan configuration
-#export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.i686.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.i686.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json
 
 # pyenv env variables
 export PYENV_ROOT="$HOME/.pyenv"
