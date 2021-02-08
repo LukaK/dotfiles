@@ -245,7 +245,8 @@ interface = wlp2s0
 interval = 1.0
 
 format-connected =  <label-connected>
-label-connected = "%essid% : %signal% dB ( %downspeed% :  %upspeed%)"
+; label-connected = "%essid% : %signal%% ( %downspeed% :  %upspeed%)"
+label-connected = "%essid% : %signal%%
 
 format-disconnected =
 
