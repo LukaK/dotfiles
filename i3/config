@@ -255,6 +255,9 @@ bindsym $mod+t exec thunderbird
 bindsym $mod+s exec spotify
 bindsym $mod+v exec viber
 
+# franz keybinding
+bindsym $mod+f exec slack
+
 
 # Assign programs to workspaces
 # Start xprop in terminal and left click on the window of the desired program
@@ -267,6 +270,7 @@ for_window [class="Thunderbird"] move to workspace $ws4
 for_window [class="Spotify"] move to workspace $ws5
 for_window [class="zoom"] move to workspace $ws6
 for_window [class="Franz"] move to workspace $ws7
+for_window [class="Slack"] move to workspace $ws7
 
 # Default layouts
 # for_window [class="Chromium"] layout stacking
