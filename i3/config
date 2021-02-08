@@ -255,10 +255,6 @@ bindsym $mod+t exec thunderbird
 bindsym $mod+s exec spotify
 bindsym $mod+v exec viber
 
-# franz keybinding
-bindsym $mod+f exec slack
-
-
 # Assign programs to workspaces
 # Start xprop in terminal and left click on the window of the desired program
 # Programm class is the second value in WM_CLASS (STRING) variable
