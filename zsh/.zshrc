@@ -141,6 +141,9 @@ alias gmg='git merge $(git branch | fzf)'
 alias grb='git rebase $(git branch | fzf)'
 alias gca='git commit -m'
 alias gl='git log --pretty=oneline'
+alias install="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias remove="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
+
 
 # virtualenvwrapper
 source /usr/bin/virtualenvwrapper.sh
