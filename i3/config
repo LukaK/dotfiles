@@ -246,6 +246,9 @@ exec_always --no-startup-id setxkbmap -config $HOME/.config/xkb/keyboard.conf
 # Dropbox
 exec dropbox
 
+# screen capture
+exec flameshot
+
 # Keybinding for i3lock
 bindsym $mod+x exec $HOME/.config/scripts/lock.sh
 

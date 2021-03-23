@@ -28,11 +28,6 @@ export FZF_DEFAULT_OPTS='-i --height 40% --reverse --border'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d --exclude .git --follow --hidden"
 
-# glue environment with spark
-export PATH="$HOME/Libs/apache-maven-3.6.0/bin:$PATH"
-export SPARK_HOME="$HOME/Libs/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8"
-export PATH="$HOME/Libs/aws-glue-libs/bin:$PATH"
-
 # vulkan configuration
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.i686.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json
 
