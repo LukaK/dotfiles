@@ -77,7 +77,6 @@ export UPDATE_ZSH_DAYS=7
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
     archlinux
     zsh-syntax-highlighting
     aws
@@ -132,9 +131,8 @@ alias v='nvim'
 
 # git aliases
 alias g='git'
-alias ga='git add | fzf'
-# alias gco='git checkout --track $(git branch -r | fzf)'
-# alias gcob='git checkout -b'
+alias gcob='git checkout --track $(git branch -r | fzf)'
+alias gco='git checkout $(git branch | fzf)'
 alias gbr='git branch'
 alias gbrm='git branch  -d $(git branch | fzf)'
 alias gmg='git merge $(git branch | fzf)'
