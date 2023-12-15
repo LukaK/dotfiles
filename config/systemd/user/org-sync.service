@@ -3,9 +3,9 @@ Description = A job for syncing organization data to google drive
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/rclone sync /home/luka/Project_reference/CA_Automations PersonalGoogleDriveOrg:CA_Automations
-ExecStart=/usr/bin/rclone sync /home/luka/Project_reference/Osobne_financije PersonalGoogleDriveOrg:Osobne_financije
-EnvironmentFile=/home/luka/.ssh/rclone/environment
+ExecStart=/usr/bin/rclone sync %h/Project_reference/CA_Automations PersonalGoogleDriveOrg:CA_Automations
+ExecStart=/usr/bin/rclone sync %h/Project_reference/Osobne_financije PersonalGoogleDriveOrg:Osobne_financije
+EnvironmentFile=%h/.ssh/rclone/environment
 
 [Install]
 WantedBy = default.target
