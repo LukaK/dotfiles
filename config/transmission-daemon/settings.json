@@ -23,7 +23,7 @@
     "idle-seeding-limit": 30,
     "idle-seeding-limit-enabled": false,
     "incomplete-dir": "/home/luka/Torrents/Incomplete",
-    "incomplete-dir-enabled": false,
+    "incomplete-dir-enabled": true,
     "lpd-enabled": true,
     "message-level": 4,
     "peer-congestion-algorithm": "",
