@@ -1,0 +1,11 @@
+[Unit]
+Description=picom service
+
+[Service]
+ExecStart=/bin/bash -lc "DISPLAY=:0 /usr/bin/picom --config $HOME/.config/picom/picom.conf"
+ExecReload=/usr/bin/killall picom
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

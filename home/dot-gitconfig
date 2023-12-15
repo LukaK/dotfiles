@@ -1,0 +1,48 @@
+[user]
+	email = luka.krapic@gmail.com
+	name = Luka Krapic
+[push]
+	default = matching
+[core]
+	excludesfile = ~/.gitignore_global
+	pager = less -R -F
+[merge]
+	ff = true
+[commit]
+	template = ~/.git_message
+[merge]
+	tool = nvimdiff
+	conflictstyle = diff3
+	prompt = false
+[interactive]
+    diffFilter = delta --color-only --line-numbers
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	a = add
+    co = "!fzf_co() { git checkout $(git branch | fzf); }; fzf_co"
+    cor = "!fzf_cor() { git checkout --track $(git branch -r | fzf); }; fzf_cor"
+    mg = "!fzf_mg() { git merge $(git branch | fzf); }; fzf_mg"
+    df = "!fzf_diff() { git diff $@ --name-only | fzf -m --ansi --preview 'git diff $@ --color=always -- {-1}'; }; fzf_diff"
+    flog = !"\
+        function fzf_log() {\
+            local filter;\
+            if [ -n $@ ] && [ -e $@ ]; then\
+                filter=\"-- $@\";\
+            fi;\
+            git log\
+                --graph --color=always --abbrev=7\
+                --format='%C(auto)%h %an %C(blue)%s %C(yellow)%cr' $@ |\
+            fzf --ansi --no-sort --layout=reverse --tiebreak=index\
+                --preview=\"f() { set -- \\$(echo -- \\$@ | rg -o '\\b[a-f0-9]{7,}\\b'); [ \\$# -eq 0 ] || git show --color=always \\$1 $filter; }; f {}\"\
+                --bind=\"ctrl-m:execute:\
+                        (rg -o '\\b[a-f0-9]{7,}\\b' | head -1 |\
+                        xargs -I % -- git show --color=always %) << FZFEOF\n\
+                        {}\
+                        \nFZFEOF\"\
+                --preview-window=right:60%;\
+        }; fzf_log\
+    "
+[init]
+	defaultBranch = main

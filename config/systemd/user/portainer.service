@@ -1,0 +1,13 @@
+[Unit]
+Description=Portainer service start
+; Requires=docker.service
+; After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c '/usr/bin/docker-compose -f $HOME/.config/systemd/user/docker-services/portainer-compose.yaml up -d'
+ExecStop=/bin/bash -c '/usr/bin/docker-compose -f $HOME/.config/systemd/user/docker-services/portainer-compose.yaml down'
+
+[Install]
+WantedBy=multi-user.target

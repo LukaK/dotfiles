@@ -1,0 +1,10 @@
+[Unit]
+Description = Backup job for work files
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rclone sync /home/luka/Dropbox CaaAwsBackup:caa-personalfs-backup/dropbox
+EnvironmentFile=/home/luka/.ssh/rclone/environment
+
+[Install]
+WantedBy = default.target

@@ -1,0 +1,11 @@
+[Unit]
+Description = A job for syncing caa organization data to business drive
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rclone copy /home/luka/Project_reference/CA_Automations/racunovodstvo CaaGoogleDrive:Racunovodstvo
+ExecStart=/usr/bin/rclone copy /home/luka/Project_reference/CA_Automations/dokumenti-legalni CaaGoogleDrive:Ugovori
+EnvironmentFile=/home/luka/.ssh/rclone/environment
+
+[Install]
+WantedBy = default.target

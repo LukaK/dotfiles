@@ -1,0 +1,11 @@
+tags
+*.swp
+*.swo
+*~
+.project
+**/__pycache__
+**/.pytest_cache
+
+.nlsp-settings
+**/.dmypy.json
+**/.mypy_cache

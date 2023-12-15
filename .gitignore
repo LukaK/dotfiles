@@ -1,0 +1,19 @@
+# vim files
+*.swo
+*.swp
+tags
+.project
+
+newsboat/cache.db
+newsboat/history.search
+
+default.target.wants
+timers.target.wants
+
+config/transmission-daemon/bandwidth-groups.json
+config/transmission-daemon/dht.dat
+config/transmission-daemon/resume
+config/transmission-daemon/stats.json
+config/transmission-daemon/torrents
+config/transmission-daemon/bandwidth-groups.json
+config/transmission-daemon/dht.dat

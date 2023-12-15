@@ -1,0 +1,54 @@
+# general variables
+export EDITOR=nvim
+export VISUAL=nvim
+
+# ruby configuration
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
+
+# ohmyzsh env variables
+export DEFAULT_USER="${USER}"
+#export ZSH_TMUX_AUTOSTART='true'
+
+# Xorg and awesome
+#export XDG_VTNR=1
+#export XDG_RUNTIME_DIR="/run/user/1000"
+#export XDG_CONFIG_HOME="/home/${USER}/.config"
+#export XDG_DATA_HOME="/home/${USER}/.config"
+#export XDG_CURRENT_DESKTOP="i3"
+
+# virtualenvwrapper
+export WORKON_HOME="$HOME/.virtualenvs"
+export PROJECT_HOME="$HOME/Workspace"
+export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
+
+# fzf (fuzzy finding)
+export FZF_DEFAULT_COMMAND='fd --type f --exclude .git --follow --hidden'
+export FZF_DEFAULT_OPTS='--height 70% --reverse --border'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd -t d --exclude .git --follow --hidden"
+
+# pyenv env variables
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims/bin:$PATH"
+eval "$(pyenv init --path)"
+
+# perl configuration
+PATH="/home/${USER}/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/${USER}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/${USER}/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/${USER}/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/${USER}/perl5"; export PERL_MM_OPT;
+
+# jenv configuration
+export PATH="$HOME/.jenv/bin:$PATH"
+
+# ssh agent env variable
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# lua modules to the path
+export PATH="$PATH:$HOME/.luarocks/bin"
+
+# appimage executable path
+export PATH="$PATH:$HOME/Applications/"
