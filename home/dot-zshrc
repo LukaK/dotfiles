@@ -124,7 +124,7 @@ bindkey -v
 
 # ALIASES
 # transmission remote ( torrent) aliases
-alias trd="transmission-daemon"
+# alias trd="transmission-daemon"
 alias trr="transmission-remote"
 
 # nvim aliases
