@@ -1,4 +1,4 @@
-import = ["/home/luka/.config/alacritty/colorschemes/nord.toml"]
+import = ["~/.config/alacritty/colorschemes/nord.toml"]
 
 [debug]
 log_level = "Warn"
