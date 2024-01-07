@@ -83,6 +83,7 @@ plugins=(
     aws
     zsh-syntax-highlighting
     kubectl
+    poetry
 )
 
 source $ZSH/oh-my-zsh.sh
