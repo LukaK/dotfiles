@@ -82,8 +82,8 @@ plugins=(
     fzf
     aws
     zsh-syntax-highlighting
-    kubectl
     poetry
+    python
 )
 
 source $ZSH/oh-my-zsh.sh
