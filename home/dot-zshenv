@@ -54,4 +54,4 @@ export PATH="$PATH:$HOME/.luarocks/bin"
 export PATH="$PATH:$HOME/Applications/"
 
 # export go executables
-export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
