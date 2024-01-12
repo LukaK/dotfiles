@@ -150,10 +150,6 @@ alias install_jupyter_kernel='pip install ipykernel && ipython kernel install --
 # virtualenvwrapper sourcing
 source /usr/bin/virtualenvwrapper.sh
 
-# source fzf key bindings
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
 # add solarized colors to the terminal
 # eval `dircolors $HOME/.config/dircolors/nord_dircolors`
 
