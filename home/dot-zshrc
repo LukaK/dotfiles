@@ -147,6 +147,10 @@ alias top='htop'
 # jupyter notebook aliases
 alias install_jupyter_kernel='pip install ipykernel && ipython kernel install --user --name=$(basename $VIRTUAL_ENV)'
 
+# fzf completions
+source ~/.fzf/key-bindings.zsh
+source ~/.fzf/completion.zsh
+
 # virtualenvwrapper sourcing
 source /usr/bin/virtualenvwrapper.sh
 
