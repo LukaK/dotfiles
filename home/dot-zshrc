@@ -84,6 +84,7 @@ plugins=(
     poetry
     python
     golang
+    helm
 )
 
 source $ZSH/oh-my-zsh.sh
