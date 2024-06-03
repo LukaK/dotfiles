@@ -161,6 +161,9 @@ source /usr/bin/virtualenvwrapper.sh
 # add solarized colors to the terminal
 # eval `dircolors $HOME/.config/dircolors/nord_dircolors`
 
+# obsidian
+alias oo='pushd ~/Project_reference/SecondBrain/ > /dev/null && v && popd > /dev/null'
+
 
 # initialize pyenv environment
 if command -v pyenv 1>/dev/null 2>&1; then
