@@ -163,7 +163,13 @@ source /usr/bin/virtualenvwrapper.sh
 
 # obsidian
 alias oo='pushd ~/Project_reference/SecondBrain/ > /dev/null && v && popd > /dev/null'
+alias on=obsidian_create_note
 
+obsidian_create_note() {
+  pushd ~/Project_reference/SecondBrain/ > /dev/null
+  v "Fleeting Notes/"$(echo "$1.md" | tr ' [:upper:]' '-[:lower:]')
+  popd > /dev/null
+}
 
 # initialize pyenv environment
 if command -v pyenv 1>/dev/null 2>&1; then
