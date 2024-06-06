@@ -167,7 +167,8 @@ alias on=obsidian_create_note
 
 obsidian_create_note() {
   pushd ~/Project_reference/SecondBrain/ > /dev/null
-  v "Fleeting Notes/"$(echo "$1.md" | tr ' [:upper:]' '-[:lower:]')
+  local file_path="Fleeting Notes/"$(echo "$1.md" | tr ' [:upper:]' '-[:lower:]')
+  v $file_path
   popd > /dev/null
 }
 
