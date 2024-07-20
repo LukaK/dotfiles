@@ -163,7 +163,7 @@ source /usr/bin/virtualenvwrapper.sh
 
 # obsidian
 alias oo='pushd ~/Project_reference/SecondBrain/ > /dev/null && v && popd > /dev/null'
-alias od='pushd ~/Project_reference/Documentation/ > /dev/null && v && popd > /dev/null'
+alias ood='pushd ~/Project_reference/Documentation/ > /dev/null && v && popd > /dev/null'
 alias on=obsidian_create_note
 
 obsidian_create_note() {
