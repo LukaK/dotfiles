@@ -12,4 +12,6 @@ xrandr \
     --output DP-1-7 --off \
     --output DP-1-8 --off \
     --output HDMI-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
-    --output HDMI-1-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal
+    --output HDMI-1-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
+# xrandr \
+#     --output HDMI-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --rate 144.00
