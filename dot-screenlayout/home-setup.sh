@@ -1,4 +1,15 @@
 #!/bin/sh
+
+xrandr \
+    --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
+    --output DP-1 --off \
+    --output HDMI-0 --off \
+    --output DP-2 --mode 3840x2160 --pos 3835x0 --rotate normal \
+    --output DP-3 --off \
+    --output HDMI-1 --off \
+    --output DP-4 --off \
+    --output DP-5 --off \
+    || \
 xrandr \
     --output eDP-1 --off \
     --output eDP-2 --off \
@@ -13,5 +24,3 @@ xrandr \
     --output DP-1-8 --off \
     --output HDMI-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
     --output HDMI-1-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
-# xrandr \
-#     --output HDMI-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --rate 144.00
