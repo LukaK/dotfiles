@@ -114,6 +114,19 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# set primary screen for all 10 workspaces
+set $primary_screen DP-0
+workspace $ws1 output $primary_screen
+workspace $ws2 output $primary_screen
+workspace $ws3 output $primary_screen
+workspace $ws4 output $primary_screen
+workspace $ws5 output $primary_screen
+workspace $ws6 output $primary_screen
+workspace $ws7 output $primary_screen
+workspace $ws8 output $primary_screen
+workspace $ws9 output $primary_screen
+workspace $ws10 output $primary_screen
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
