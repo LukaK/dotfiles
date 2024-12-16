@@ -5,10 +5,10 @@ function setup_workstation5 {
     # desktop mode
     xrandr \
         --output HDMI-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
-        --output eDP-1 --mode 2560x1440 --pos 3840x0 --rotate normal \
+        --output eDP-1 --mode 2560x1600 --pos 3840x0 --rotate normal \
     || \
     # single mode
-    xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal
+    xrandr --output eDP-1 --primary --mode 2560x1600 --rotate normal
 }
 
 
