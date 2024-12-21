@@ -14,8 +14,8 @@ function setup_workstation5 {
 
 function setup_workstation4 {
     xrandr \
-        --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
-        --output DP-4 --mode 3840x2160 --pos 3835x0 --rotate normal
+        --output DP-2 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
+        --output DP-0 --mode 3840x2160 --pos 3835x0 --rotate normal
 }
 
 HOSTNAME="$(hostname)"
