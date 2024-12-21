@@ -141,15 +141,11 @@ alias wrk='workon'
 alias dea='deactivate'
 
 # system aliases
-alias install="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias remove="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 alias top='htop'
 
 # navigation
 alias wrkf='dir="$(fd --type d --follow --exclude .git --exact-depth 2 --full-path ~/Workspace | fzf)" && cd "$dir" && nvim .'
-
-# jupyter notebook aliases
-alias install_jupyter_kernel='pip install ipykernel && ipython kernel install --user --name=$(basename $VIRTUAL_ENV)'
 
 # fzf completions
 source ~/.fzf/key-bindings.zsh
