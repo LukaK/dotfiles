@@ -18,8 +18,23 @@ function setup_workstation4 {
         --output DP-0 --mode 3840x2160 --pos 3835x0 --rotate normal
 }
 
+
+function setup_workstation3 {
+
+    # desktop mode
+    xrandr \
+        --output HDMI-1-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
+        --output eDP-1 --mode 2560x1440 --pos 3840x0 --rotate normal \
+    || \
+    # single mode
+    xrandr --output eDP-1 --primary --mode 2560x1600 --rotate normal
+}
+
+
 HOSTNAME="$(hostname)"
 case $HOSTNAME in
+    "workstation3.lab")
+        setup_workstation3;;
     "workstation4.lab")
         setup_workstation4;;
     "workstation5.lab")
