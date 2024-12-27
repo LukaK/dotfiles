@@ -3,7 +3,8 @@
 log_level = "Warn"
 
 [env]
-TERM = "alacritty"
+# TERM = "alacritty"
+TERM = "xterm-256color"
 
 [font]
 size = 12
