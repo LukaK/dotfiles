@@ -10,13 +10,6 @@ export PATH="$PATH:$GEM_HOME/bin"
 export DEFAULT_USER="${USER}"
 #export ZSH_TMUX_AUTOSTART='true'
 
-# Xorg and awesome
-#export XDG_VTNR=1
-#export XDG_RUNTIME_DIR="/run/user/1000"
-#export XDG_CONFIG_HOME="/home/${USER}/.config"
-#export XDG_DATA_HOME="/home/${USER}/.config"
-#export XDG_CURRENT_DESKTOP="i3"
-
 # virtualenvwrapper
 export WORKON_HOME="$HOME/.virtualenvs"
 export PROJECT_HOME="$HOME/Workspace"
