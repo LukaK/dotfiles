@@ -139,8 +139,8 @@ alias g='git'
 
 # kubernetes
 alias k='kubectl'
-alias kns='kubens'
-alias kctx='kubectx'
+alias kn='kubens'
+alias kx='kubectx'
 
 # virtualenvwrapper aliases
 alias wrk='workon'
