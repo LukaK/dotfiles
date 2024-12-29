@@ -137,6 +137,11 @@ alias vf='file="$(fd --type f --follow --exclude .git | fzf)" && nvim "$file"'
 # git aliases
 alias g='git'
 
+# kubernetes
+alias k='kubectl'
+alias kns='kubens'
+alias kctx='kubectx'
+
 # virtualenvwrapper aliases
 alias wrk='workon'
 alias dea='deactivate'
