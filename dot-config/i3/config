@@ -295,5 +295,5 @@ for_window [class="zoom"] move to workspace $ws6
 for_window [class="vlc"] move to workspace $ws6
 for_window [class="Steam"] move to workspace $ws7
 for_window [class="Virt-manager"] move to workspace $ws8
-for_window [class="pomatez"] move to workspace $ws9
+# for_window [class="pomatez"] move to workspace $ws9
 for_window [class="Slack"] move to workspace $ws10

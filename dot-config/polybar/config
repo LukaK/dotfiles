@@ -61,7 +61,7 @@ font-5 = Font Awesome 6 Brands:pixelsize=18;2
 modules-left = i3
 ; modules-center = xwindow pacman-updates spotify
 modules-center = spotify
-modules-right = pacman-updates pulseaudio xkeyboard filesystem memory cpu temperature battery date
+modules-right = pomodoro pacman-updates pulseaudio xkeyboard filesystem memory cpu temperature battery date
 
 separator = |
 
@@ -368,6 +368,14 @@ interval = 1000
 label = %output:2:3%
 format-foreground = ${colors.foreground}
 format-prefix = " "
+
+[module/pomodoro]
+type = custom/script
+click-left = i3-gnome-pomodoro toggle
+click-middle = gnome-pomodoro
+click-right = i3-gnome-pomodoro start_stop
+exec = i3-gnome-pomodoro status --always
+interval = 1
 
 [module/powermenu]
 type = custom/menu
