@@ -153,6 +153,9 @@ alias top='htop'
 # navigation
 alias wrkf='dir="$(fd --type d --follow --exclude .git --exact-depth 2 --full-path ~/Workspace | fzf)" && cd "$dir" && nvim .'
 
+# blog writing
+alias blog='cd ~/Workspace/caa-websites/itguyjournals/'
+
 # fzf completions
 source ~/.fzf/key-bindings.zsh
 source ~/.fzf/completion.zsh
