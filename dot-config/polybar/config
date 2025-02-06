@@ -30,6 +30,7 @@ alert = #bf616a
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 30
+dpi = 96
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -50,20 +51,27 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = DejaVu Sans Mono:pixelsize=16;0
-font-1 = unifont:fontformat=truetype:size=14:antialias=false;0
-font-2 = siji:pixelsize=16;1
-font-3 = Font Awesome 6 Free:pixelsize=18;2
-font-4 = Font Awesome 6 Free Solid:pixelsize=18;2
-font-5 = Font Awesome 6 Brands:pixelsize=18;2
+# font-0 = DejaVu Sans Mono:pixelsize=16;0
+font-0 = DejaVu Sans Mono
+font-1 = unifont:fontformat=truetype:antialias=false;0
+font-2 = siji;1
+font-3 = Font Awesome 6 Free;2
+font-4 = Font Awesome 6 Free Solid;2
+font-5 = Font Awesome 6 Brands;2
+# font-1 = unifont:fontformat=truetype:size=14:antialias=false;0
+# font-2 = siji:pixelsize=16;1
+# font-3 = Font Awesome 6 Free:pixelsize=18;2
+# font-4 = Font Awesome 6 Free Solid:pixelsize=18;2
+# font-5 = Font Awesome 6 Brands:pixelsize=18;2
 
 
 modules-left = i3
 ; modules-center = xwindow pacman-updates spotify
 modules-center = spotify
-modules-right = pomodoro pacman-updates pulseaudio xkeyboard filesystem memory cpu temperature battery date
+# modules-right = pomodoro pacman-updates pulseaudio xkeyboard filesystem memory cpu temperature battery date
+modules-right = pomodoro pulseaudio xkeyboard filesystem memory cpu temperature battery date
 
-separator = |
+separator =|
 
 tray-position = center
 tray-padding = 1
@@ -353,7 +361,8 @@ label = %temperature-c%
 
 format-warn = <ramp> <label-warn>
 format-warn-underline = #f50a4d
-label-warn =  %temperature-c%
+# label-warn =  %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
@@ -374,7 +383,7 @@ type = custom/script
 click-left = i3-gnome-pomodoro toggle
 click-middle = gnome-pomodoro
 click-right = i3-gnome-pomodoro start_stop
-exec = i3-gnome-pomodoro status --always
+exec = i3-gnome-pomodoro status --always --icon-text Pom
 interval = 1
 
 [module/powermenu]
@@ -388,7 +397,7 @@ label-open = 
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
-label-separator = |
+label-separator =|
 label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
