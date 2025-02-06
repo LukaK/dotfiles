@@ -1,5 +1,16 @@
 #!/bin/sh
 
+function setup_workstation6 {
+
+    # desktop mode
+    xrandr \
+        --output HDMI-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
+        --output eDP-1 --mode 1920x1200 --pos 3840x0 --rotate normal \
+    || \
+    # single mode
+    xrandr --output eDP-1 --primary --mode 1920x1200 --rotate normal
+}
+
 function setup_workstation5 {
 
     # desktop mode
@@ -39,6 +50,8 @@ case $HOSTNAME in
         setup_workstation4;;
     "workstation5.lab")
         setup_workstation5;;
+    "workstation6.lab")
+        setup_workstation6;;
     *)
         ;;
 esac
