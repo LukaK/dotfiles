@@ -49,5 +49,8 @@ export PATH="$PATH:$HOME/Applications/"
 # export go executables
 export PATH="$PATH:$(go env GOPATH)/bin"
 
+# add path for local pipx cli tools
+export PATH="$PATH:$HOME/.local/bin"
+
 # virtualization
 export LIBVIRT_DEFAULT_URI="qemu:///system"
