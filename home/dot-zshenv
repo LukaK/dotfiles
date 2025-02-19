@@ -24,8 +24,7 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 # pyenv env variables
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims/bin:$PATH"
-eval "$(pyenv init --path)"
+export PATH="$PYENV_ROOT/shims:$PATH"
 
 # perl configuration
 PATH="/home/${USER}/perl5/bin${PATH:+:${PATH}}"; export PATH;
