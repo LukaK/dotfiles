@@ -53,3 +53,6 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # virtualization
 export LIBVIRT_DEFAULT_URI="qemu:///system"
+
+# alacritty scaling of fonts
+export WINIT_X11_SCALE_FACTOR=1
