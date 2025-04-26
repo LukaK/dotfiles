@@ -53,7 +53,6 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # add path for nix packages
 export PATH="$PATH:$HOME/.nix-profile/bin"
-export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 
 # virtualization
 export LIBVIRT_DEFAULT_URI="qemu:///system"
