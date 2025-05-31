@@ -1,3 +1,0 @@
-[submodule "config/rclone"]
-	path = config/rclone
-	url = git@github.com:LukaK/dotfiles-rclone.git
