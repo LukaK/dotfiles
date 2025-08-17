@@ -1,4 +1,5 @@
 k9s:
+  portForwardAddress: 127.0.0.1
   liveViewAutoRefresh: false
   screenDumpDir: /home/luka/.local/state/k9s/screen-dumps
   refreshRate: 2
