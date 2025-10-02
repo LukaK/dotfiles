@@ -41,6 +41,17 @@ function setup_workstation3 {
     xrandr --output eDP-1 --primary --mode 2560x1600 --rotate normal
 }
 
+function setup_laptop1 {
+
+    # desktop mode
+    xrandr \
+        --output HDMI-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
+        --output eDP-1 --off \
+    || \
+    # single mode
+    xrandr --output eDP-1 --primary --mode 2560x1600 --rotate normal
+}
+
 
 HOSTNAME="$(hostname)"
 case $HOSTNAME in
@@ -52,6 +63,8 @@ case $HOSTNAME in
         setup_workstation5;;
     "workstation6.lab")
         setup_workstation6;;
+    "laptop1.lab")
+        setup_laptop1;;
     *)
         ;;
 esac
