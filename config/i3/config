@@ -115,7 +115,9 @@ set $ws9 "9"
 set $ws10 "10"
 
 # set primary screen for all 10 workspaces
-set $primary_screen DP-2 HDMI-1 HDMI-1-1
+set $primary_screen HDMI-1 HDMI-1-1 DP-2
+include exec "test -f ~/.config/i3/`hostname`.conf && echo ~/.config/i3/`hostname`.conf"
+
 workspace $ws1 output $primary_screen
 workspace $ws2 output $primary_screen
 workspace $ws3 output $primary_screen
